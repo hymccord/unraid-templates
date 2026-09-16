@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>victoria-logs</Name>
+  <Repository>victoriametrics/victoria-logs</Repository>
+  <Registry>https://hub.docker.com/r/victoriametrics/victoria-logs</Registry>
+  <Network>bridge</Network>
+  <ExtraNetworks/>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/VictoriaMetrics/VictoriaLogs</Project>
+  <ReadMe/>
+  <Overview>VictoriaLogs is a high-performance, lightweight, zero-config, schema-free database for logs that is easy to use and scales both vertically and horizontally, from very small setups to large-scale deployments handling terabytes per day.&#13;
+&#13;
+See https://docs.victoriametrics.com/victorialogs for docs.</Overview>
+  <Category>Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:9428]/select/vmui</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/hymccord/unraid-templates/master/templates/images/victoria-metrics-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs>-envflag.enable</PostArgs>
+  <CPUset/>
+  <Memory/>
+  <DateInstalled>1789592202</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Data" Target="/victoria-logs-data" Default="/mnt/user/appdata/victoria-logs" Mode="rw" Description="Path to directory where to store VictoriaLogs data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/victoria-logs</Config>
+  <Config Name="Port" Target="9428" Default="9428" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">9428</Config>
+  <Config Name="Retention Period" Target="retentionPeriod" Default="1w" Mode="" Description="Log entries with timestamps older than now-retentionPeriod are automatically deleted; the minimum supported retention is 1d (one day).&#13;&#10;&#13;&#10;The following optional suffixes are supported: s (second), h (hour), d (day), w (week), M (month), y (year). If suffix isn't set, then the duration is counted in months (default 7d)&#13;&#10;" Type="Variable" Display="always" Required="true" Mask="false">30d</Config>
+  <Config Name="Max Disk Space Usage Bytes" Target="retention_maxDiskSpaceUsageBytes" Default="0" Mode="" Description="The maximum disk space usage at -storageDataPath before older per-day partitions are automatically dropped.&#13;&#10;Supports the following optional suffixes for size values: KB, MB, GB, TB, KiB, MiB, GiB, TiB (default 0)&#13;&#10;" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Max Disk Usage Percent" Target="retention_maxDiskUsagePercent" Default="0" Mode="" Description="The maximum allowed disk usage percentage (1-100) for the filesystem that contains -storageDataPath before older per-day partitions are automatically dropped; mutually exclusive with -retention.maxDiskSpaceUsageBytes" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <TailscaleStateDir/>
+</Container>
